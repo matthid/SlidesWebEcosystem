@@ -7,3 +7,8 @@ https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5
 
 
 
+https://medium.com/@henrytran/basics-dynamic-styles-with-react-react-native-29f41e552164
+https://www.slightedgecoder.com/2017/12/03/loading-react-components-dynamically-demand/
+https://github.com/jamiebuilds/react-loadable
+https://webpack.js.org/concepts/
+http://todomvc.com/
