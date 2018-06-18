@@ -1,6 +1,6 @@
-- title : Business in the post-OSS world
-- description : A journey through Open Source in the IT-Sector
-- author : Matthias Dittrich
+- title : HTML & JavaScript Ecosystem
+- description : A brief introduction into HTML5 and the JavaScript ecosystem
+- author : Matthias Dittrich, Johannes Baeurle
 - theme : league
 - transition : default
 
@@ -10,65 +10,199 @@
 
 <img style="border-style: none" border="0" src="images/AIT-Logo_small.jpg" />
 
-### **Matthias Dittrich**, AIT GmbH <br /> [@matthi\_\_d](http://twitter.com/matthi__d) | [github](https://github.com/matthid) | [aitgmbh.de](http://www.aitgmbh.de/)
+### **Matthias Dittrich & Johannes Baeurle**, AIT GmbH <br /> [@matthi\_\_d](http://twitter.com/matthi__d) [@JoBaeurle](http://twitter.com/JoBaeurle) | [github matthid](https://github.com/matthid) [github JohBa](https://github.com/JohBa) | [aitgmbh.de](http://www.aitgmbh.de/)
 
 ***
 
 ### Roadmap
 
- - **Was bisher geschah...**
- - Lizenzen und Ideale?
- - Stand von OSS?
- - Warum OSS?
- - Oder doch nicht?
- - To be continued...
+ - **HTML**
+ - JavaScript
 
 ---
 
-<img style="border-style: none" border="0" src="images/Wat.jpg" />
+### Under the hood
 
-' Eigene Meinung
-' Kontroverses Thema
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Beispiel</title>
+  </head>
+  <body>
+    <h1>Beispiel</h1>
+    <p>Das ist ein <a href="demo.html">einfaches</a> Beispiel.</p>
+    <!-- dies ist ein Kommentar -->
+  </body>
+</html>
+```
 
----
-
-### Open Source Definition
-
-Open-source software (OSS) is a type of computer software with its source code made available with a license 
-in which the copyright holder provides the rights to study, change, and distribute the software to anyone and for any purpose.
-
----
-
-### Knackpunkte
-
-- ~1980 Free Software Movement
-- 1997 The Cathedral and the Bazaar
-- 1998 "Open Source Initiative"
-- 2001 "open source is an intellectual property destroyer. I can't imagine something that could be worse than this for the software business and the intellectual-property business."
-
-' "Free" Software -> Incompatible with business
-' Microsoft
-' Eric S. Raymond
-' Cathedral: Centralized and under control
-' Bazaar: De-centralized and shared
+' xml
+' elemente, attribute
+' kein styling bis auf wenige ausnahmen
 
 ---
 
-### Bazaar?
+### Der DOM
+<img src="images/html_dom.gif" alt="Der DOM" />
 
-- Users should be treated as co-developers
-- Early releases
-- Frequent integration
-- Several versions
-- High modularization
-- Dynamic decision making structure
+Document Object Model
 
-' "Given enough eyeballs all bugs are shallow." -> Nutzer haben oft selbst hohe Fähigkeiten
-' The first version of the software should be released as early as possible so as to increase one's chances of finding co-developers early.
-' Code changes should be integrated (merged into a shared code base) as often as possible so as to avoid the overhead of fixing a large number of bugs at the end of the project life cycle. Some open source projects have nightly builds where integration is done automatically on a daily basis.
-' There should be at least two versions of the software. There should be a buggier version with more features and a more stable version with fewer features. The buggy version (also called the development version) is for users who want the immediate use of the latest features, and are willing to accept the risk of using code that is not yet thoroughly tested. The users can then act as co-developers, reporting bugs and providing bug fixes.
-' The general structure of the software should be modular allowing for parallel development on independent components.
-' There is a need for a decision making structure, whether formal or informal, that makes strategic decisions depending on changing user requirements and other factors. 
+' Browser analysiert HTML
+' Erstellen DOM im Arbeitsspeicher
+' DOM Zugriff über bspw. javascript
+
+---
+
+###Head
+```html
+<head>
+  <title>HTML head Elements</title>
+  <meta charset="utf-8">
+  <meta name="Keywords" content="HTML,...">
+  <meta name="Description" content="Well...">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/w3css/4/w3.css">
+  <script async="async" type="text/javascript" src="w3schools.min.js"></script>
+</head>
+```
+The `<head>` element is a container for metadata (data about data) and is placed between the `<html>` tag and the `<body>` tag.
+
+HTML metadata is data about the HTML document. Metadata is not displayed.
+
+---
+
+###Body
+
+The `<body>` tag defines the document's body.
+
+The `<body>` element contains all the contents of an HTML document, such as text, hyperlinks, images, tables, lists, etc.
+
+---
+
+```html
+<input placeholder="foo" id="test" type="text">
+<button type="button">Button</button>
+```
+<input placeholder="foo" id="test" type="text">
+<button type="button">Button</button>
+
+---
+
+```html
+<h1>Header</h1>
+<h2>Subheader</h2>
+```
+<h1>Header</h1>
+<h2>Subheader</h2>
+
+---
+
+```html
+<a href="http://google.com">Hyperlink</a>
+<img src="images/html_dom.gif" title="Der DOM" alt="Der DOM" />
+```
+<a href="http://google.com">Hyperlink</a>
+<img src="images/html_dom.gif" alt="Der DOM" />
+
+---
+
+```html
+<a href="http://google.com">Hyperlink</a>
+<img src="images/html_dom.gif" title="Der DOM" alt="Der DOM" />
+```
+<a href="http://google.com">Hyperlink</a>
+<img src="images/html_dom.gif" alt="Der DOM" />
+
+---
+
+```html
+<div>Hier könnte Ihre Werbung stehen!</div>
+```
+The `<div>` tag defines a division or a section in an HTML document.
+
+The `<div>` element is often used as a container for other HTML elements to style them with CSS or to perform certain tasks with JavaScript.
+
+' styling mit divs
+' html dokument voller divs
+' kaum lesbar
+' früher table hell, dann div hell
+' html5 macht (fast) alles besser
+
+---
+
+```html
+<div id="header">
+  Header
+  <div id="nav">Menu</div>
+</div>
+<div id="wrapper">
+  <div id="content">
+    Inhalt
+  </div>
+  <div id="sidebar">
+    Sidebar
+  </div>
+</div>
+<div id="footer">Footer</div>
+```
+
+---
+
+### HTML5 Semantic Web!
+`<header>` `<nav>` `<section>` `<article>` `<aside>` `<footer>`
+
+---
+
+```html
+<header>
+  Header
+  <nav>Menu</nav>
+</nav>
+<section>
+  <article>
+    Inhalt
+  </article>
+  <aside>
+    Sidebar
+  </aside>
+</section>
+<footer>Footer</footer>
+```
+
+---
+
+### Styling?!
+Cascading Style Sheets!
+
+```css
+body {
+    background-color: lightblue;
+}
+h1 {
+    color: white;
+    text-align: center;
+}
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
+```
+
+' HTML nur Formattierung, wie dann Styling?
+' CSS für styles, hintergrundfarbe, textfarbe, etc.!
+
+---
+
+### More?!
+https://www.w3schools.com/html/default.asp
+https://www.w3schools.com/css
+
+---
+
+### Demo!
+
+---
 
 ***
 
