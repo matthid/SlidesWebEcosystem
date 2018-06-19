@@ -1,18 +1,45 @@
 
+# Intro
+
 https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70
+
+# webpack
+
+https://webpack.js.org/guides/hot-module-replacement/
+https://webpack.js.org/concepts/
+https://webpack.js.org/guides/getting-started/
+https://github.com/jantimon/html-webpack-plugin
+https://github.com/jaketrent/html-webpack-template
+
+
+# React & Redux
 
 https://www.youtube.com/watch?v=x7cQ3mrcKaY
 
-https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5c52d620176
+## Redux 
+
+https://redux.js.org/introduction/core-concepts (all chapters basically)
 
 
+## React dynamic (FYI)
 
 https://medium.com/@henrytran/basics-dynamic-styles-with-react-react-native-29f41e552164
 https://www.slightedgecoder.com/2017/12/03/loading-react-components-dynamically-demand/
 https://github.com/jamiebuilds/react-loadable
-https://webpack.js.org/concepts/
+
+
+# Comparison
+
+https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5c52d620176
+
+# TypeScript
+
+(how to setup react & webpack from scratch with typescript)
+https://www.typescriptlang.org/docs/handbook/react-&-webpack.html
+
+# Example
+
 http://todomvc.com/
 
-https://www.typescriptlang.org/docs/handbook/react-&-webpack.html
 https://www.w3schools.com/
 https://wiki.selfhtml.org/wiki/DOM
