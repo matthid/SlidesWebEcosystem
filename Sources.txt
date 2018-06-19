@@ -20,6 +20,8 @@ https://www.youtube.com/watch?v=x7cQ3mrcKaY
 
 https://redux.js.org/introduction/core-concepts (all chapters basically)
 
+http://www.sohamkamani.com/blog/2017/03/31/react-redux-connect-explained/
+
 
 ## React dynamic (FYI)
 

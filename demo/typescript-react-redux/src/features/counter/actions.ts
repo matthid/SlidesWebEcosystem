@@ -1,22 +1,23 @@
-import cuid from 'cuid';
-import { createStandardAction } from 'typesafe-actions';
+import * as cuid from 'cuid';
+import { createStandardAction, createAction } from 'typesafe-actions';
 
-import { TodosFilter, Todo } from './models';
+import { CounterModel } from './models';
 
-const ADD = 'todos/ADD';
-const TOGGLE = 'todos/TOGGLE';
-const CHANGE_FILTER = 'todos/CHANGE_FILTER';
+export const increaseCounter = createAction("INC", resolve => {
+  return () => resolve();
+});
 
-export const add = createStandardAction(ADD).map(
-  (payload: { title: string }) => ({
-    payload: {
-      title: payload.title || 'New Todo',
-      id: cuid(),
-      completed: false,
-    } as Todo,
-  })
-);
+export const resetCounter = createAction("RST", resolve => {
+  return () => resolve();
+});
 
-export const toggle = createStandardAction(TOGGLE)<{ id: string }>();
+export const decreaseCounter = createAction("DCR", resolve => {
+  return () => resolve();
+});
 
-export const changeFilter = createStandardAction(CHANGE_FILTER)<TodosFilter>();
+export const setState = createAction("SETSTATE", resolve => {
+  return (isEnabled: boolean) => resolve(isEnabled);
+});
+//export const increaseCounter: () => {
+//  type: "INC";
+//}
