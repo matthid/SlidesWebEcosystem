@@ -18,6 +18,3 @@ export const decreaseCounter = createAction("DCR", resolve => {
 export const setState = createAction("SETSTATE", resolve => {
   return (isEnabled: boolean) => resolve(isEnabled);
 });
-//export const increaseCounter: () => {
-//  type: "INC";
-//}
