@@ -14,3 +14,5 @@ https://webpack.js.org/concepts/
 http://todomvc.com/
 
 https://www.typescriptlang.org/docs/handbook/react-&-webpack.html
+https://www.w3schools.com/
+https://wiki.selfhtml.org/wiki/DOM
