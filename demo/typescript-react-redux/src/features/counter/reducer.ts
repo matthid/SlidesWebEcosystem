@@ -13,8 +13,8 @@ export type CounterState = Readonly<{
   isEnabled: boolean
 }>;
 
-export default combineReducers<CounterState, CounterActions>({
-  counter: (state = { currentValue: 0 }, action) => {
+var defaultReducer = combineReducers<CounterState, CounterActions>({
+  counter: (state = { currentValue: 0 }, action:CounterActions) => {
     switch (action.type) {
       case getType(counterActions.decreaseCounter):
         return { currentValue: state.currentValue - 1};
@@ -26,7 +26,7 @@ export default combineReducers<CounterState, CounterActions>({
         return state;
     }
   },
-  isEnabled: (state = true, action) => {
+  isEnabled: (state = true, action:CounterActions) => {
     switch (action.type) {
       case getType(counterActions.setState):
         return action.payload;
@@ -35,3 +35,5 @@ export default combineReducers<CounterState, CounterActions>({
     }
   },
 });
+
+export default defaultReducer;
