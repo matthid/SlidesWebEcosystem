@@ -12,3 +12,5 @@ https://www.slightedgecoder.com/2017/12/03/loading-react-components-dynamically-
 https://github.com/jamiebuilds/react-loadable
 https://webpack.js.org/concepts/
 http://todomvc.com/
+
+https://www.typescriptlang.org/docs/handbook/react-&-webpack.html

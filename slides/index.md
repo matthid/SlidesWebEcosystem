@@ -6,7 +6,7 @@
 
 ***
 
-## Business in the post-OSS world
+## Javascript Ecosystem
 
 <img style="border-style: none" border="0" src="images/AIT-Logo_small.jpg" />
 
@@ -206,257 +206,88 @@ https://www.w3schools.com/css
 
 ***
 
-### Roadmap
-
- - Was bisher geschah...
- - **Lizenzen und Ideale?**
- - Stand von OSS?
- - Warum OSS?
- - Oder doch nicht?
- - To be continued...
-
----
-
-### "I'm not a lawer"
-
-' Can only give some general ideas
-
----
-
-### The four philosophies
-
-<img src="images/oss-licenses.png" style="background: white;" width=700 />
-
-' Open -> MIT/Apache 2.0
-' LGPL -> Änderungen müssen zurückwandern, einbindung in kommerziellen Code möglich
-' GPL -> Einbindung in kommerziellen Code nicht möglich
-' AGPL -> Cloud!
-
----
-
-### What the GPL?
-
-<img src="images/agpl.png" style="background: white;" width=700 />
-
-***
 
 ### Roadmap
 
- - Was bisher geschah...
- - Lizenzen und Ideale?
- - **Stand von OSS?**
- - Warum OSS?
- - Oder doch nicht?
- - To be continued...
+ - HTML
+ - **JavaScript**
 
 ---
 
-### Wer nutzt OSS?
+### Managing dependencies?
+
+- Referencing other servers?
+- Downloading and adding .js files by hand?
+- Scale?
 
 ---
 
-# 100%
+### NPM (node package manager)!
 
-[of Fortune 500 companies using NPM](https://twitter.com/joemccann/status/821522254957658112)
+- Part of a nodejs installation
+- **No longer required to manually download `*.js` files**
+- `packages.json`, `node_modules`
 
---- 
-
-## More companies
-
-<img src="images/CompaniesUsingOSS.png" style="background: white;" width=700 />
-
-' Black Duck Software
-
---- 
-
-## More projects
-
-<img src="images/numberOfProjects.png" style="background: white;" width=700 />
-
-' SourceForge & GitHub
-
---- 
-
-## $2,400,000,000
-
-Venture capital investments into OSS focused companies in 2014
+<img src="images/nodejs_npm.png" style="background: white;" width=700 />
 
 ---
 
-### Microsoft
+### Growing ecosystem?
 
-"We use open source - along a lot of other reasons - to improve our internal work flow and cross project contributions"
-
-*** 
-
-### Roadmap
-
- - Was bisher geschah...
- - Stand von OSS?
- - Lizenzen und Ideale?
- - **Warum OSS?**
- - Oder doch nicht?
- - To be continued...
+- Lots of small javascript files
+- Speed issues (loading lots of javascript files)
 
 ---
 
-### Standards
+### Webpack!
 
-"Open source software is usually easier to obtain than proprietary software, often resulting in increased use. Additionally, the availability of an open source implementation of a standard can increase adoption of that standard"
+"bundle" the javascript application into a single file an minimize download.
 
-> http://dodcio.defense.gov/Open-Source-Software-FAQ/
+tree shaking
 
-' Standards schaffen
-' Standards verdrengen
-
----
-
-### Quality
-
-"The OSS development approach has helped produce reliable, high quality software quickly and inexpensively."
-
-> http://www.jmir.org/2011/1/e24/
+"build system"
 
 ---
 
-### Innovation
+### Managing code bases?
 
-"It is flexible because modular systems allow programmers to build custom interfaces, or add new abilities to it and it is innovative since open source programs are the product of collaboration among a large number of different programmers. The mix of divergent perspectives, corporate objectives, and personal goals speeds up innovation"
+- No compiler, no types
+- no refactoring
 
-> Plotkin, Hal (December 1998)
-
----
-
-### Security
-
-"Moreover, free software can be developed in accord with purely technical requirements. It does not require thinking about commercial pressure that often degrades the quality of the software. Commercial pressures make traditional software developers pay more attention to customers' requirements than to security requirements, since such features are somewhat invisible to the customer."
-
-> https://onlinelibrary.wiley.com/doi/abs/10.1046/j.1365-2575.2002.00118.x
-
-' custom needs -> custom audit
+-> Not possible to manage huge code bases
 
 ---
 
-### Sustainability
+### TypeScript!
 
-"Open source is not dependent on the company or author that originally created it. Even if the company fails, the code continues to exist and be developed by its users. Also, it uses open standards accessible to everyone; thus, it does not have the problem of incompatible formats that exist in proprietary software. "
-
-***
-
-### Roadmap
-
- - Was bisher geschah...
- - Stand von OSS?
- - Lizenzen und Ideale?
- - Warum OSS?
- - **Oder doch nicht?**
- - To be continued...
+- Superset of JavaScript
+- Typed, feels like working with C#
+- Refactoring
+- Transpiles to plain JavaScript in the version you choose (ES5 is compatible with most browsers)
 
 ---
 
-### Bazaar?
+### Modern UI Development: React and redux.js
 
-<img src="images/nope.jpg" style="background: white;" width=700 />
+- Separate application state from drawing
+- all parts of the application are testable
+- not a lot of hidden "magic"
+- prevent side-effects
 
----
-
-# 3%
-
-of projects use the bazaar model. There is always someone in charge.
-
----
-
-# 93%
-
-of NPM packages with just one maintainer.
+' just look at the state
 
 ---
 
-> I guess we all just need to hope that maintainers of those projects will never quit, get bored or decide that they have better things to do in their spare time…
+### Demo (simple-client):
 
----
-
-## 1/2 of contributors only contribute once
-
-They account for < 2% of commits.
-
----
-
-<img src="images/contributions_omnisharp.png" style="background: white;" width=700 />
-
----
-
-### Risk?
-
-- Using OSS powered by businesses
-- Fixing bugs for free (compare with running license costs!)
-  -> Hard to make transparent
-- Buying SLAs from external consultings?
-- Evaluation is hard
-- "left-pad"?
-
----
-
-### Vorteil proprietärer Software
-
-- Direkter Ansprech- und Vertragsparter
-- Alles aus einer Hand
-- "Günstiger" als Beratung
-
----
-
-"Businesses have a process for buying things they need."
-
-"They don't have one for giving away things for free."
-
-***
-
-### Roadmap
-
- - Was bisher geschah...
- - Stand von OSS?
- - Lizenzen und Ideale?
- - Warum OSS?
- - Oder doch nicht?
- - **To be continued...**
-
----
-
-### Business-Secrets?
-
-<img src="images/80_20.jpg" style="background: white;" width=500 />
-
-' 80% digital infrastructure -> "no brainer"
-' 20% business critical -> individuell
-
----
-
-### Future
-
-- recognize the importance of our "digital infrastructure"
-- open market closed by new business ideas
-- financial maintainer support or own developers
-- working on open-source will be "the norm"
-- businesses will learn to deal with it
-
-' controlling the direction
-' building own features
-
----
-
-<img src="images/heartbleed.png" style="background: white;" width=900 />
-
-' BoringSSL (Google)
-
----
-
-<img src="images/Equifax.jpg" style="background: white;" width=700 />
+- npm
+- webpack
+- typescript
+- React & redux.js
 
 ***
 
 ### Thank you!
 
-* http://slides.com/k_cieslak/oss-3
-* F# Community
-* Wikipedia
-* Johannes, Nico
+* Too many, see Sources.txt
+* Johannes, Matthias
