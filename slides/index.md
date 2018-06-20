@@ -108,11 +108,15 @@ The `<body>` element contains all the contents of an HTML document, such as text
 ---
 
 ```html
-<a href="http://google.com">Hyperlink</a>
-<img src="images/html_dom.gif" title="Der DOM" alt="Der DOM" />
+<input type="date" name="bday">
+<svg width="100" height="100">
+  <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+</svg>
 ```
-<a href="http://google.com">Hyperlink</a>
-<img src="images/html_dom.gif" alt="Der DOM" />
+<input type="date" name="bday">
+<svg width="100" height="100">
+  <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+</svg>
 
 ---
 
