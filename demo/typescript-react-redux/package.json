@@ -26,6 +26,8 @@
   },
   "devDependencies": {
     "@types/core-js": "^2.5.0",
+    "@types/react-redux": "^6.0.2",
+    "@types/react-router-redux": "^5.0.15",
     "awesome-typescript-loader": "^5.1.1",
     "html-webpack-plugin": "^4.0.0-alpha",
     "html-webpack-template": "^6.2.0",
