@@ -230,7 +230,7 @@ let configureApp (app : IApplicationBuilder) =
 
 ---
 
-### C# -> F# quickstart
+### C# to F# quickstart
 
 - Remove semicolons, braces and fix intendation
 - Remove types (will be inferred most of the time)
@@ -238,7 +238,7 @@ let configureApp (app : IApplicationBuilder) =
 - functions are "let" with arguments
 - variables `<> null` & `Option<T> = T option`
 - lambdas are `fun <Parameter1> <parameter2> -> <code>`
-- a "module" is a static class
+- a "module" is a static class & top to bottom
 - `Func<T1, T1>` = `T1 -> T2`
 - `void` is called `unit` or `()`
 - no `return` as last value is the return
