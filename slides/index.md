@@ -237,6 +237,7 @@ let configureApp (app : IApplicationBuilder) =
 - Remove types (will be inferred most of the time)
 - replace "var" with "let", "using" with "open"
 - functions are "let" with arguments
+- variables `<> null` & `Option<T> = T option`
 - lambdas are `fun <Parameter1> <parameter2> -> <code>`
 - a "module" is a static class
 - `Func<T1, T1>` = `T1 -> T2`
@@ -319,6 +320,9 @@ let view (model : Model) (dispatch : Msg -> unit) : React.ReactElement =
                 Columns.columns [] buttons ]
         ]
 ```
+
+' react
+' fulma
 
 ---
 
