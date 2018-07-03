@@ -159,9 +159,12 @@ Either handles the request, calls `next` or anything in between.
             return new ActionResult<IEnumerable<CoreOsApp>>(apps.Select(a => a.App));
         }
         
-        [HttpGet("{id}/api/{*route}")]
-        public void GetApi(string id, string route, [FromBody] string value) {
+        // POST api/coreosapps/api
+        [HttpPost("{id}/api/{*route}")]
+        public void PostApi(string id, string route, [FromBody] string value)
+        {
             // Call corresponding middlware component
+            // return result.
         }
 ```
 
