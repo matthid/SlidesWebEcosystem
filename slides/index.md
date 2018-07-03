@@ -17,7 +17,8 @@
 ### Roadmap
 
  - **ASP.Net Core**
- - Fable / Elmish
+ - Fable 
+ - Elmish
 
 ---
 
@@ -135,13 +136,78 @@ Middleware is a high-order function ;)
 Middleware gets the `next` function in the pipeline
 Either handles the request, calls `next` or anything in between.
 
-***
+' Authentication/Authorization
+' Setting variables in the pipeline
 
+---
+
+<img src="images/request-delegate-pipeline.png" style="background: white;" width=700 />
+
+---
+
+### Mvc (classic ASP.Net)
+
+```csharp
+    [Route("api/[controller]")]
+    [ApiController]
+    public class CoreOsAppsController : ControllerBase {
+        // GET api/coreosapps
+        [HttpGet]
+        public ActionResult<IEnumerable<CoreOsApp>> Get() {
+            // Set application/json?
+            Response.ContentType = "application/json";
+            return new ActionResult<IEnumerable<CoreOsApp>>(apps.Select(a => a.App));
+        }
+        
+        // POST api/values
+        [HttpGet("{id}/api/{*route}")]
+        public void GetApi(string id, string route, [FromBody] string value) {
+            // Call corresponding middlware component
+        }
+```
+
+' Dependency injection of the "ConfigureServices"
+' Mark via attributes
+
+---
+
+### Einschub Giraffe (F#)
+
+```csharp
+public delegate Task RequestDelegate(HttpContext context);
+public interface IApplicationBuilder {
+  // ...
+  IApplicationBuilder Use(Func<RequestDelegate, RequestDelegate> middleware);
+}
+```
+
+```fsharp
+type HttpFuncResult = Task<HttpContext option>
+type HttpFunc = HttpContext -> HttpFuncResult
+type HttpHandler = HttpFunc -> HttpFunc
+```
+
+' Unterschied1: HttpContext passed along with the pipeline
+' Unterschied2: cancellation / Noop because of "None"
+
+---
+
+<img src="images/HttpHandlerComposition.png" style="background: white;" width=700 />
+
+```fsharp
+let configureApp (app : IApplicationBuilder) =
+    app.UseDefaultFiles()
+       .UseStaticFiles()
+       .UseGiraffe(webApp)
+```
+
+***
 
 ### Roadmap
 
  - ASP.Net Core
- - **Fable / Elmish**
+ - **Fable**
+ - Elmish
 
 ---
 
@@ -154,78 +220,139 @@ Either handles the request, calls `next` or anything in between.
 
 ---
 
-### NPM (node package manager)!
+### JavaScript Ecosystem
 
-- Part of a nodejs installation
-- **No longer required to manually download `*.js` files**
-- `packages.json`, `node_modules`
-
-<img src="images/nodejs_npm.png" style="background: white;" width=700 />
-
----
-
-### Growing ecosystem?
-
-- Lots of small javascript files
-- Speed issues (loading lots of javascript files)
+- Some "core" .NET APIs are mapped for convenience
+- FSharp.Core is mapped
+- search on npm
+  -> create bindings/imports/generate from typescript
+  -> use library
+- A lot of libraries have bindings ootb (just like typescript)
 
 ---
 
-### Webpack!
+### C# -> F# quickstart
 
-"bundle" the javascript application into a single file an minimize download.
+- Remove semicolons, braces and fix intendation
+- Remove types (will be inferred most of the time)
+- replace "var" with "let", "using" with "open"
+- functions are "let" with arguments
+- lambdas are `fun <Parameter1> <parameter2> -> <code>`
+- a "module" is a static class
+- `Func<T1, T1>` = `T1 -> T2`
+- `void` is called `unit` or `()`
+- no `return` as last value is the return
 
-tree shaking
+' Not technically accurate - conceptually
 
-"build system"
+***
 
-<img src="images/what-is-webpack.png" style="background: white;" width=600 />
+### Roadmap
 
----
-
-### Managing code bases?
-
-- No compiler, no types
-- no refactoring
-
--> Not possible to manage huge code bases
-
----
-
-### TypeScript!
-
-- Superset of JavaScript
-- Typed, feels like working with C#
-- Refactoring
-- Transpiles to plain JavaScript in the version you choose (ES5 is compatible with most browsers)
-
-<img src="images/typescript.png" style="background: white;" width=200 />
+ - ASP.Net Core
+ - Fabl
+ - **Elmish**
 
 ---
 
-### Modern UI Development: React and redux.js
+### Elmish
 
-- Separate application state from drawing
-- all parts of the application are testable
-- not a lot of hidden "magic"
-- prevent side-effects
-
-<img src="images/react_redux.png" style="background: white;" width=700 />
-
-' just look at the state
+<img src="images/elmish-04-flow.png" style="background: white;" width=700 />
 
 ---
 
-### Demo (simple-client):
+### Model / Messages
 
-- npm
-- webpack
-- typescript
-- React & redux.js
+```fsharp
+type Counter = int
+type Model = Counter option
+type Msg =
+| Increment
+| Decrement
+| Init of Counter
+```
+
+---
+
+### init
+
+```fsharp
+let init (_:CoreOsAppInit) : Model * Cmd<Msg> =
+    let model = None
+    let cmd = Cmd.ofMsg (Msg.Init (42))
+    model, cmd
+```
+
+---
+
+### update
+
+```fsharp
+let update (msg : Msg) (model : Model) : Model * Cmd<Msg> =
+    let model' =
+        match model,  msg with
+        | Some x, Increment -> Some (x + 1)
+        | Some x, Decrement -> Some (x - 1)
+        | None, Init (Ok x) -> Some x
+        | _ -> model
+    model', Cmd.none
+```
+
+---
+
+### view
+
+```fsharp
+let view (model : Model) (dispatch : Msg -> unit) : React.ReactElement =
+    let centered =
+        Content.Modifiers
+           [ Modifier.TextAlignment (Screen.All, TextAlignment.Centered) ]
+    let counterText =
+        str ("Press buttons to manipulate counter: " + show model)
+    let buttons =
+        [ Column.column [] [ button "-" (fun _ -> dispatch Decrement) ]
+          Column.column [] [ button "+" (fun _ -> dispatch Increment) ] ]
+    div []
+        [ Container.container []
+              [ Content.content [ centered ]
+                    [ Heading.h3 [] [ counterText ] ]
+                Columns.columns [] buttons ]
+        ]
+```
+
+---
+
+### Helpers
+
+```fsharp
+let show model =
+    match model with
+    | Some x -> string x
+    | None -> "Loading..."
+
+let button txt onClick : React.ReactElement =
+    Button.button
+        [ Button.IsFullWidth
+          Button.Color IsPrimary
+          Button.OnClick onClick ]
+        [ str txt ]
+```
+
+---
+
+### Glue everything together
+
+```fsharp
+Program.mkProgram init update view
+|> Program.withReact "elmish-app"
+|> Program.run
+```
+
+Replaces `<div>` with id `"elmish-app"` just like the usual `React.Render`.
 
 ***
 
 ### Thank you!
 
 * Too many sources, see Sources.txt
-* Johannes, Matthias
+* Matthias
