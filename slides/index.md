@@ -1,230 +1,156 @@
-- title : HTML & JavaScript Ecosystem
-- description : A brief introduction into HTML5 and the JavaScript ecosystem
-- author : Matthias Dittrich, Johannes Baeurle
+- title : ASP.Net & Fable
+- description : Backend and Fable Frontend
+- author : Matthias Dittrich
 - theme : league
 - transition : default
 
 ***
 
-## Javascript Ecosystem
+## ASP.Net Core Backend & Fable Frontend
 
 <img style="border-style: none" border="0" src="images/AIT-Logo_small.jpg" />
 
-### **Matthias Dittrich & Johannes Baeurle**, AIT GmbH <br /> [@matthi\_\_d](http://twitter.com/matthi__d) [@JoBaeurle](http://twitter.com/JoBaeurle) | [github matthid](https://github.com/matthid) [github JohBa](https://github.com/JohBa) | [aitgmbh.de](http://www.aitgmbh.de/)
+### **Matthias Dittrich**, AIT GmbH <br /> [@matthi\_\_d](http://twitter.com/matthi__d) [github matthid](https://github.com/matthid) | [aitgmbh.de](http://www.aitgmbh.de/)
 
 ***
 
 ### Roadmap
 
- - **HTML**
- - JavaScript
+ - **ASP.Net Core**
+ - Fable / Elmish
 
 ---
 
-### Under the hood
+### .Net / .Net Core ???
 
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Beispiel</title>
-  </head>
-  <body>
-    <h1>Beispiel</h1>
-    <p>Das ist ein <a href="demo.html">einfaches</a> Beispiel.</p>
-    <!-- dies ist ein Kommentar -->
-  </body>
-</html>
-```
+framework available for both runtime.
 
-' xml
-' elemente, attribute
-' kein styling bis auf wenige ausnahmen
+originally from the ASP.Net team...
+
+* more deployment options (docker)
+* X-plat
+* modularizarion -> size
+* performance
 
 ---
 
-### Der DOM
-<img src="images/html_dom.gif" alt="Der DOM" />
+### Self hosting
 
-Document Object Model
+```csharp
+    public static IConfiguration Configuration { get; set; }
+    public static void Main(string[] args) {
+        var builder = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json");
 
-' Browser analysiert HTML
-' Erstellen DOM im Arbeitsspeicher
-' DOM Zugriff über bspw. javascript
-
----
-
-###Head
-```html
-<head>
-  <title>HTML head Elements</title>
-  <meta charset="utf-8">
-  <meta name="Keywords" content="HTML,...">
-  <meta name="Description" content="Well...">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="/w3css/4/w3.css">
-  <script async="async" type="text/javascript" src="w3schools.min.js"></script>
-</head>
-```
-The `<head>` element is a container for metadata (data about data) and is placed between the `<html>` tag and the `<body>` tag.
-
-HTML metadata is data about the HTML document. Metadata is not displayed.
-
----
-
-###Body
-
-The `<body>` tag defines the document's body.
-
-The `<body>` element contains all the contents of an HTML document, such as text, hyperlinks, images, tables, lists, etc.
-
----
-
-```html
-<input placeholder="foo" id="test" type="text">
-<button type="button">Button</button>
-```
-<input placeholder="foo" id="test" type="text">
-<button type="button">Button</button>
-
----
-
-```html
-<h1>Header</h1>
-<h2>Subheader</h2>
-```
-<h1>Header</h1>
-<h2>Subheader</h2>
-
----
-
-```html
-<a href="http://google.com">Hyperlink</a>
-<img src="images/html_dom.gif" title="Der DOM" alt="Der DOM" />
-```
-<a href="http://google.com">Hyperlink</a>
-<img src="images/html_dom.gif" alt="Der DOM" />
-
----
-
-```html
-<input type="date" name="bday">
-<svg width="100" height="100">
-  <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
-</svg>
-```
-<input type="date" name="bday">
-<svg width="100" height="100">
-  <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
-</svg>
-
----
-
-```html
-<div>Hier könnte Ihre Werbung stehen!</div>
-```
-The `<div>` tag defines a division or a section in an HTML document.
-
-The `<div>` element is often used as a container for other HTML elements to style them with CSS or to perform certain tasks with JavaScript.
-
-' styling mit divs
-' html dokument voller divs
-' kaum lesbar
-' früher table hell, dann div hell
-' html5 macht (fast) alles besser
-
----
-
-```html
-<div id="header">
-  Header
-  <div id="nav">Menu</div>
-</div>
-<div id="wrapper">
-  <div id="content">
-    Inhalt
-  </div>
-  <div id="sidebar">
-    Sidebar
-  </div>
-</div>
-<div id="footer">Footer</div>
+        Configuration = builder.Build();
+        CreateWebHostBuilder(args).Build().Run();
+    }
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+        .UseUrls(Configuration["urls"])
+        .UseStartup<Startup>();
 ```
 
 ---
 
-### HTML5 Semantic Web!
-`<header>` `<nav>` `<section>` `<article>` `<aside>` `<footer>`
+### Configuration
 
----
-
-```html
-<header>
-  Header
-  <nav>Menu</nav>
-</nav>
-<section>
-  <article>
-    Inhalt
-  </article>
-  <aside>
-    Sidebar
-  </aside>
-</section>
-<footer>Footer</footer>
-```
-
----
-
-### Styling?!
-Cascading Style Sheets!
-
-```css
-body {
-    background-color: lightblue;
-}
-h1 {
-    color: white;
-    text-align: center;
-}
-p {
-    font-family: verdana;
-    font-size: 20px;
+```json
+{
+    "urls": "http://localhost:8082/"
 }
 ```
 
-' HTML nur Formattierung, wie dann Styling?
-' CSS für styles, hintergrundfarbe, textfarbe, etc.!
+Loosely coupled.
+
+```csharp
+        .UseUrls(Configuration["urls"])
+```
+
+POCO Object (strong type) possible: `IOption<MySetting>`
 
 ---
 
-### More?!
-https://www.w3schools.com/html/default.asp
-https://www.w3schools.com/css
+### Startup.cs
+
+```
+    public class Startup
+    {
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
+
+        // This method gets called by the runtime.
+        // Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddMvc()
+                .AddJsonOptions(options =>
+                {
+                    // json options
+                });
+        }
+```
+
+' Setup DI Container with services
+' Optional
 
 ---
 
-### Demo!
+### Configure
+
+```csharp
+    // This method gets called by the runtime.
+    // Use this method to configure the HTTP request pipeline.
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
+        if (env.IsDevelopment()) {
+            app.UseDeveloperExceptionPage();
+        }
+        else {
+            app.UseHsts();
+        }
+
+        //app.UseHttpsRedirection();
+        app.UseMvc();
+    }
+```
 
 ---
+
+### Request pipeline
+
+```csharp
+public delegate Task RequestDelegate(HttpContext context);
+public interface IApplicationBuilder {
+  // ...
+  IApplicationBuilder Use(Func<RequestDelegate, RequestDelegate> middleware);
+}
+```
+
+Middleware is a high-order function ;)
+Middleware gets the `next` function in the pipeline
+Either handles the request, calls `next` or anything in between.
 
 ***
 
 
 ### Roadmap
 
- - HTML
- - **JavaScript**
+ - ASP.Net Core
+ - **Fable / Elmish**
 
 ---
 
-### Managing dependencies?
+### Fable
 
-- Referencing other servers?
-- Downloading and adding .js files by hand?
-- Scale?
-
-<img src="images/dependency_hell.jpg" style="background: white;" width=400 />
+- F# to JavaScript
+- Generates readable JavaScript
+- Does NOT support all .NET APIs
+- Embraces JavaScript Ecosystem
 
 ---
 
