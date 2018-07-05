@@ -180,17 +180,52 @@ module.exports = {
 
 ### Loaders and Plugins
 
+* Loaders
+  * preprocess files, own loaders with node.js
+* Plugins
+  * "serve the purpose of doing anything else that a loader cannot do."
+
+' Loaders kann man sich wie Tasks in build vorstellen
+' webpack itself is built on the same plugin system that you use in your webpack configuration!
+' Plugins machen alles was nicht mit loadern geht
+
 ---
 
 ### Loader
+
+```js
+module: {
+    rules: [
+        { 
+          test: /\.tsx?$/, 
+          loader: "awesome-typescript-loader"
+        }
+    ]
+}
+```
+
+' test prüft auf .ts oder .tsx endung, Regex feld.
 
 ---
 
 ### Plugin
 
+```js
+plugins:[
+    new HtmlWebpackPlugin({
+      title: 'Hot Module Replacement'
+    })
+]
+```
+
+' Generiert automatisch eine index.html im output ordner
+' fügt automatisch generierte bundle.js hinzu
+
 ---
 
 ### Managing code bases?
+
+TODO: Brauchen wir das noch? oder sollen wir das als gegeben sehen und rauswerfen?
 
 - No compiler, no types
 - no refactoring
@@ -210,7 +245,9 @@ module.exports = {
 
 ---
 
-### Modern UI Development: React and redux.js
+### Modern UI Development: React
+
+TODO: überarbeiten?
 
 - Separate application state from drawing
 - all parts of the application are testable
@@ -228,7 +265,7 @@ module.exports = {
 - npm
 - webpack
 - typescript
-- React & redux.js
+- React
 
 ***
 
