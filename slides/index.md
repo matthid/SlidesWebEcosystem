@@ -153,6 +153,41 @@ tree shaking
 
 <img src="images/what-is-webpack.png" style="background: white;" width=600 />
 
+' mächtig!
+' viele plugins/loader um Entwicklung zu unterstützen
+' macht aus vielen js dateien eine bundle datei mit allem
+' nur noch ein request für alles js
+
+---
+
+### Configure
+
+```js
+module.exports = {
+    entry: "./src/index.tsx",
+    output: {
+        filename: "bundle.js",
+        path: __dirname + "/dist"
+    },
+
+    resolve: {
+        extensions: [ ".js", ".json"]
+    }
+};
+```
+
+---
+
+### Loaders and Plugins
+
+---
+
+### Loader
+
+---
+
+### Plugin
+
 ---
 
 ### Managing code bases?
