@@ -249,25 +249,31 @@ TODO: Brauchen wir das noch? oder sollen wir das als gegeben sehen und rauswerfe
 
 ### Modern UI Development: React
 
-TODO: überarbeiten?
-
 - Separate application state from drawing
-- all parts of the application are testable
-- not a lot of hidden "magic"
-- prevent side-effects
+- do not split on technologies but on components!
+- internal optimizations with virtual dom
+- with great power comes great responsibility
 
-<img src="images/react_redux.png" style="background: white;" width=700 />
+<img src="images/react.png" style="background: white;" width=700 />
 
 ' just look at the state
+' Elmish
 
 ---
 
-### Demo (simple-client):
+
+<img src="images/react_example.png" style="background: white;" width=700 />
+
+---
+
+### Demo (POC CoreOsApps):
 
 - npm
 - webpack
 - typescript
-- React
+- fable
+- react
+- elmish
 
 ***
 
