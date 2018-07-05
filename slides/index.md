@@ -1,5 +1,5 @@
 - title : HTML & JavaScript Ecosystem
-- description : A brief introduction into HTML5 and the JavaScript ecosystem
+- description : A brief introduction into the JavaScript ecosystem (NPM, Webpack, React)
 - author : Matthias Dittrich, Johannes Baeurle
 - theme : league
 - transition : default
@@ -16,205 +16,59 @@
 
 ### Roadmap
 
- - **HTML**
- - JavaScript
+ - **JavaScript**
+ - NPM
+ - Webpack
 
 ---
 
-### Under the hood
+### In the beginning was...
 
 ```html
-<!DOCTYPE html>
 <html>
-  <head>
-    <title>Beispiel</title>
-  </head>
-  <body>
-    <h1>Beispiel</h1>
-    <p>Das ist ein <a href="demo.html">einfaches</a> Beispiel.</p>
-    <!-- dies ist ein Kommentar -->
-  </body>
-</html>
+<head>
+  <title>xyz</title>
+  <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+  <script type='text/javascript' src='index.js'></script>
+</head>
+<body>
+
+</body>
 ```
 
-' xml
-' elemente, attribute
-' kein styling bis auf wenige ausnahmen
+```js
+console.log("hiho");
+```
+
+' einfaches javascript
+' Einbindung File in HTML File
 
 ---
 
-### Der DOM
-<img src="images/html_dom.gif" alt="Der DOM" />
+### Oldschool Way
 
-Document Object Model
-
-' Browser analysiert HTML
-' Erstellen DOM im Arbeitsspeicher
-' DOM Zugriff über bspw. javascript
-
----
-
-###Head
-```html
+```html 
+<html>
 <head>
-  <title>HTML head Elements</title>
-  <meta charset="utf-8">
-  <meta name="Keywords" content="HTML,...">
-  <meta name="Description" content="Well...">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="/w3css/4/w3.css">
-  <script async="async" type="text/javascript" src="w3schools.min.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>xyz</title>
+  <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+  <link rel='stylesheet' id='wpfb-css'  href='wp-filebase.css' type='text/css' media='all' />
+  <script type='text/javascript' src='jquery.js?ver=1.12.4'></script>
+  <script type='text/javascript' src='jquery-migrate.min.js?ver=1.4.1'></script>
+  <script type='text/javascript' src='jquery.easing.min.js?ver=1.4.1'></script>
+  <script type='text/javascript' src='jquery.mousewheel.min.js?ver=3.1.13'></script>
+  <script type='text/javascript' src='wp-embed.min.js?ver=4.9.6'></script>
+  <script type='text/javascript' src='moment.min.js'></script>
+  .
+  .
+  .
+  <script type='text/javascript' src='index.js'></script>
 </head>
 ```
-The `<head>` element is a container for metadata (data about data) and is placed between the `<html>` tag and the `<body>` tag.
-
-HTML metadata is data about the HTML document. Metadata is not displayed.
-
----
-
-###Body
-
-The `<body>` tag defines the document's body.
-
-The `<body>` element contains all the contents of an HTML document, such as text, hyperlinks, images, tables, lists, etc.
-
----
-
-```html
-<input placeholder="foo" id="test" type="text">
-<button type="button">Button</button>
-```
-<input placeholder="foo" id="test" type="text">
-<button type="button">Button</button>
-
----
-
-```html
-<h1>Header</h1>
-<h2>Subheader</h2>
-```
-<h1>Header</h1>
-<h2>Subheader</h2>
-
----
-
-```html
-<a href="http://google.com">Hyperlink</a>
-<img src="images/html_dom.gif" title="Der DOM" alt="Der DOM" />
-```
-<a href="http://google.com">Hyperlink</a>
-<img src="images/html_dom.gif" alt="Der DOM" />
-
----
-
-```html
-<input type="date" name="bday">
-<svg width="100" height="100">
-  <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
-</svg>
-```
-<input type="date" name="bday">
-<svg width="100" height="100">
-  <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
-</svg>
-
----
-
-```html
-<div>Hier könnte Ihre Werbung stehen!</div>
-```
-The `<div>` tag defines a division or a section in an HTML document.
-
-The `<div>` element is often used as a container for other HTML elements to style them with CSS or to perform certain tasks with JavaScript.
-
-' styling mit divs
-' html dokument voller divs
-' kaum lesbar
-' früher table hell, dann div hell
-' html5 macht (fast) alles besser
-
----
-
-```html
-<div id="header">
-  Header
-  <div id="nav">Menu</div>
-</div>
-<div id="wrapper">
-  <div id="content">
-    Inhalt
-  </div>
-  <div id="sidebar">
-    Sidebar
-  </div>
-</div>
-<div id="footer">Footer</div>
-```
-
----
-
-### HTML5 Semantic Web!
-`<header>` `<nav>` `<section>` `<article>` `<aside>` `<footer>`
-
----
-
-```html
-<header>
-  Header
-  <nav>Menu</nav>
-</nav>
-<section>
-  <article>
-    Inhalt
-  </article>
-  <aside>
-    Sidebar
-  </aside>
-</section>
-<footer>Footer</footer>
-```
-
----
-
-### Styling?!
-Cascading Style Sheets!
-
-```css
-body {
-    background-color: lightblue;
-}
-h1 {
-    color: white;
-    text-align: center;
-}
-p {
-    font-family: verdana;
-    font-size: 20px;
-}
-```
-
-' HTML nur Formattierung, wie dann Styling?
-' CSS für styles, hintergrundfarbe, textfarbe, etc.!
-
----
-
-### More?!
-https://www.w3schools.com/html/default.asp
-https://www.w3schools.com/css
-
----
-
-### Demo!
-
----
-
-***
-
-
-### Roadmap
-
- - HTML
- - **JavaScript**
+' Vorgehen: neue library ziehen, einbinden (bei jedem update!)
+' Javascript früher: vielleicht ein paar Events, Button Clicks, kleine Änderungen am Dom
+' Javascript heute: macht fast "alles", dynamisch content nachladen, etc.
 
 ---
 
@@ -225,6 +79,14 @@ https://www.w3schools.com/css
 - Scale?
 
 <img src="images/dependency_hell.jpg" style="background: white;" width=400 />
+
+***
+
+### Roadmap
+
+ - JavaScript
+ - **NPM**
+ - Webpack
 
 ---
 
@@ -238,10 +100,46 @@ https://www.w3schools.com/css
 
 ---
 
+### First steps with npm
+```
+npm init
+npm install react --save
+npm install webpack --save-dev
+```
+
+' init erzeugt ein einfaches packages.json file mit infos für npm
+' --save installiert dependency für production
+' --save-dev für development
+
+---
+
 ### Growing ecosystem?
 
 - Lots of small javascript files
 - Speed issues (loading lots of javascript files)
+
+---
+
+### Import packages
+
+```js
+var react = require('react');
+
+console.log("hiho");
+```
+
+' node löst abhängigkeit auf, kennt richtigen pfad
+' funktioniert so aber erstmal nicht
+' browser hat keinen zugriff zum filesystem
+' module bundler, gleich. Webpack
+
+***
+
+### Roadmap
+
+ - JavaScript
+ - NPM
+ - **Webpack**
 
 ---
 

@@ -3,13 +3,15 @@
 
 https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70
 
-# webpack
+# webpack (& npm)
 
 https://webpack.js.org/guides/hot-module-replacement/
 https://webpack.js.org/concepts/
 https://webpack.js.org/guides/getting-started/
 https://github.com/jantimon/html-webpack-plugin
 https://github.com/jaketrent/html-webpack-template
+https://css-tricks.com/introduction-webpack-entry-output-loaders-plugins/
+https://medium.com/front-end-hacking/what-are-npm-yarn-babel-and-webpack-and-how-to-properly-use-them-d835a758f987
 
 
 # React & Redux
