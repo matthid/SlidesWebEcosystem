@@ -115,6 +115,34 @@ npm install webpack --save-dev
 
 ---
 
+### Packages.json
+
+```
+{
+  "name": "empty-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "typesafe-actions": "^2.0.4"
+  },
+  "devDependencies": {
+    "typescript": "^2.9.2",
+    "webpack": "^4.12.0"
+  }
+}
+
+```
+
+---
+
 ### Growing ecosystem?
 
 - Lots of small javascript files
@@ -226,6 +254,22 @@ plugins:[
 ' Generiert automatisch eine index.html im output ordner
 ' fügt automatisch generierte bundle.js hinzu
 
+---
+
+### NPM & Webpack
+Packages.json
+```js
+"scripts": {
+    "start:dev": "webpack-dev-server --mode development",
+    "start": "webpack --mode development",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+}
+```
+
+' scripts um nicht ständig riesige befehle per commandline eingeben zu müssen
+' build bspw. starten oder für development app starten
+
 ***
 
 ### Roadmap
@@ -235,7 +279,23 @@ plugins:[
  - Webpack
  - **JavaScript - Wat?**
 
- ---
+---
+
+---
+
+### JavaScript?
+
+```js
+[1,2,3,15,30,7,5,45,60].sort()
+// = [1,15,2,3,30,45,5,60,7]
+```
+
+<img src="images/Wat.jpg"  style="background: white;" width=604 />
+
+' keine typen, js nutzt string comparison
+'  "1".charCodeAt(0) etc.
+
+---
 
 ### Managing code bases?
 
@@ -243,6 +303,9 @@ plugins:[
 - no refactoring
 
 -> Not possible to manage huge code bases
+
+' IDE unterstützung bei renaming fehlt
+' nach änderung quasi trial & error
 
 ---
 
@@ -254,6 +317,8 @@ plugins:[
 - Transpiles to plain JavaScript in the version you choose (ES5 is compatible with most browsers)
 
 <img src="images/typescript.png" style="background: white;" width=200 />
+
+' fehler werden direkt rot in der IDE angezeigt (methode nicht gefunden etc.)
 
 ---
 
