@@ -335,7 +335,7 @@ Packages.json
 ---
 
 
-<img src="images/react_example.png" style="background: white;" width=700 />
+<img src="images/react_example.png" style="background: white;" width=900 />
 
 ---
 
