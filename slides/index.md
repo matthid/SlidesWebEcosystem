@@ -6,7 +6,7 @@
 
 ***
 
-## Javascript Ecosystem
+## A brief introduction into the JavaScript ecosystem (NPM, Webpack, React)
 
 <img style="border-style: none" border="0" src="images/AIT-Logo_small.jpg" />
 
@@ -157,6 +157,7 @@ tree shaking
 ' viele plugins/loader um Entwicklung zu unterstützen
 ' macht aus vielen js dateien eine bundle datei mit allem
 ' nur noch ein request für alles js
+' tree shaking: ungenutzte module werden ausgelassen
 
 ---
 
@@ -164,7 +165,7 @@ tree shaking
 
 ```js
 module.exports = {
-    entry: "./src/index.tsx",
+    entry: "./src/index.js",
     output: {
         filename: "bundle.js",
         path: __dirname + "/dist"
@@ -204,6 +205,7 @@ module: {
 }
 ```
 
+' loaders innerhalb rules liste
 ' test prüft auf .ts oder .tsx endung, Regex feld.
 
 ---
@@ -213,7 +215,7 @@ module: {
 ```js
 plugins:[
     new HtmlWebpackPlugin({
-      title: 'Hot Module Replacement'
+      title: 'Testpage'
     })
 ]
 ```
