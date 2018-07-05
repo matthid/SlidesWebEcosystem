@@ -19,6 +19,7 @@
  - **JavaScript**
  - NPM
  - Webpack
+ - JavaScript - Wat?
 
 ---
 
@@ -87,6 +88,7 @@ console.log("hiho");
  - JavaScript
  - **NPM**
  - Webpack
+ - JavaScript - Wat?
 
 ---
 
@@ -110,6 +112,34 @@ npm install webpack --save-dev
 ' init erzeugt ein einfaches packages.json file mit infos für npm
 ' --save installiert dependency für production
 ' --save-dev für development
+
+---
+
+### Packages.json
+
+```
+{
+  "name": "empty-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "typesafe-actions": "^2.0.4"
+  },
+  "devDependencies": {
+    "typescript": "^2.9.2",
+    "webpack": "^4.12.0"
+  }
+}
+
+```
 
 ---
 
@@ -140,6 +170,7 @@ console.log("hiho");
  - JavaScript
  - NPM
  - **Webpack**
+ - JavaScript - Wat?
 
 ---
 
@@ -225,14 +256,54 @@ plugins:[
 
 ---
 
-### Managing code bases?
+### NPM & Webpack
+Packages.json
+```js
+"scripts": {
+    "start:dev": "webpack-dev-server --mode development",
+    "start": "webpack --mode development",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+}
+```
 
-TODO: Brauchen wir das noch? oder sollen wir das als gegeben sehen und rauswerfen?
+' scripts um nicht ständig riesige befehle per commandline eingeben zu müssen
+' build bspw. starten oder für development app starten
+
+***
+
+### Roadmap
+
+ - JavaScript
+ - NPM
+ - Webpack
+ - **JavaScript - Wat?**
+
+---
+
+### JavaScript?
+
+```js
+[1,2,3,15,30,7,5,45,60].sort()
+// = [1,15,2,3,30,45,5,60,7]
+```
+
+<img src="images/Wat.jpg"  style="background: white;" width=604 />
+
+' keine typen, js nutzt string comparison
+'  "1".charCodeAt(0) etc.
+
+---
+
+### Managing code bases?
 
 - No compiler, no types
 - no refactoring
 
 -> Not possible to manage huge code bases
+
+' IDE unterstützung bei renaming fehlt
+' nach änderung quasi trial & error
 
 ---
 
@@ -244,6 +315,8 @@ TODO: Brauchen wir das noch? oder sollen wir das als gegeben sehen und rauswerfe
 - Transpiles to plain JavaScript in the version you choose (ES5 is compatible with most browsers)
 
 <img src="images/typescript.png" style="background: white;" width=200 />
+
+' fehler werden direkt rot in der IDE angezeigt (methode nicht gefunden etc.)
 
 ---
 
