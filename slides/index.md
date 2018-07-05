@@ -19,6 +19,7 @@
  - **JavaScript**
  - NPM
  - Webpack
+ - JavaScript - Wat?
 
 ---
 
@@ -87,6 +88,7 @@ console.log("hiho");
  - JavaScript
  - **NPM**
  - Webpack
+ - JavaScript - Wat?
 
 ---
 
@@ -140,6 +142,7 @@ console.log("hiho");
  - JavaScript
  - NPM
  - **Webpack**
+ - JavaScript - Wat?
 
 ---
 
@@ -223,11 +226,18 @@ plugins:[
 ' Generiert automatisch eine index.html im output ordner
 ' fügt automatisch generierte bundle.js hinzu
 
----
+***
+
+### Roadmap
+
+ - JavaScript
+ - NPM
+ - Webpack
+ - **JavaScript - Wat?**
+
+ ---
 
 ### Managing code bases?
-
-TODO: Brauchen wir das noch? oder sollen wir das als gegeben sehen und rauswerfen?
 
 - No compiler, no types
 - no refactoring
