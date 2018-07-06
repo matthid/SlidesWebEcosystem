@@ -197,7 +197,7 @@ import React from "react";
 
 ### Webpack!
 
-"bundle" the javascript application into a single file an minimize download.
+"bundle" the javascript application into a single file and minimize download.
 
 tree shaking
 
