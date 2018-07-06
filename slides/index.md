@@ -167,11 +167,7 @@ npm install webpack --save-dev
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>xyz</title>
   <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
-  <link rel='stylesheet' id='wpfb-css'  href='wp-filebase.css' type='text/css' media='all' />
-  <script type='text/javascript' src='node_modules/jquery/jquery.js?ver=1.12.4'></script>
-  <script type='text/javascript' src='node_modules/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
-  <script type='text/javascript' src='node_modules/jquery/jquery.easing.min.js?ver=1.4.1'></script>
-  <script type='text/javascript' src='node_modules/jquery/jquery.mousewheel.min.js?ver=3.1.13'></script>
+  <script type='text/javascript' src='node_modules/jquery/jquery.js'></script>
   <script type='text/javascript' src='node_modules/react/react.js'></script>
   <script type='text/javascript' src='node_modules/moment/moment.min.js'></script>
   .
@@ -214,21 +210,6 @@ tree shaking
 ' macht aus vielen js dateien eine bundle datei mit allem
 ' nur noch ein request für alles js
 ' tree shaking: ungenutzte module werden ausgelassen
-
----
-
-### Import packages
-
-```js
-var react = require('react');
-
-console.log("hiho");
-```
-
-' node löst abhängigkeit auf, kennt richtigen pfad
-' funktioniert so aber erstmal nicht
-' browser hat keinen zugriff zum filesystem
-' module bundler, gleich. Webpack
 
 ---
 
@@ -278,6 +259,32 @@ module: {
 
 ' loaders innerhalb rules liste
 ' test prüft auf .ts oder .tsx endung, Regex feld.
+
+---
+
+### Loader
+
+```js
+{
+  test: /\.scss$/,
+  use: [{
+    loader: 'style-loader'
+    }, {
+    loader: 'css-loader'
+    }, {
+    loader: 'sass-loader'
+  }]
+}
+```
+
+```js
+import './style.scss'
+```
+
+' css loading über javascript
+' sass-loader transforms Sass into CSS.
+' css-loader parses the CSS into JavaScript and resolves any dependencies.
+' style-loader outputs our CSS into a style tag in the document.
 
 ---
 
