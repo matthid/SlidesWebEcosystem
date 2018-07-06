@@ -282,6 +282,7 @@ import './style.scss'
 ```
 
 ' css loading über javascript
+' reihenfolge von unten nach oben
 ' sass-loader transforms Sass into CSS.
 ' css-loader parses the CSS into JavaScript and resolves any dependencies.
 ' style-loader outputs our CSS into a style tag in the document.
