@@ -59,7 +59,7 @@ console.log("hiho");
   <script type='text/javascript' src='jquery-migrate.min.js?ver=1.4.1'></script>
   <script type='text/javascript' src='jquery.easing.min.js?ver=1.4.1'></script>
   <script type='text/javascript' src='jquery.mousewheel.min.js?ver=3.1.13'></script>
-  <script type='text/javascript' src='wp-embed.min.js?ver=4.9.6'></script>
+  <script type='text/javascript' src='react.js'></script>
   <script type='text/javascript' src='moment.min.js'></script>
   .
   .
@@ -148,21 +148,6 @@ npm install webpack --save-dev
 - Lots of small javascript files
 - Speed issues (loading lots of javascript files)
 
----
-
-### Import packages
-
-```js
-var react = require('react');
-
-console.log("hiho");
-```
-
-' node löst abhängigkeit auf, kennt richtigen pfad
-' funktioniert so aber erstmal nicht
-' browser hat keinen zugriff zum filesystem
-' module bundler, gleich. Webpack
-
 ***
 
 ### Roadmap
@@ -171,6 +156,46 @@ console.log("hiho");
  - NPM
  - **Webpack**
  - JavaScript - Wat?
+
+---
+
+### node_modules, and now?
+
+```html 
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>xyz</title>
+  <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+  <link rel='stylesheet' id='wpfb-css'  href='wp-filebase.css' type='text/css' media='all' />
+  <script type='text/javascript' src='node_modules/jquery/jquery.js?ver=1.12.4'></script>
+  <script type='text/javascript' src='node_modules/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+  <script type='text/javascript' src='node_modules/jquery/jquery.easing.min.js?ver=1.4.1'></script>
+  <script type='text/javascript' src='node_modules/jquery/jquery.mousewheel.min.js?ver=3.1.13'></script>
+  <script type='text/javascript' src='node_modules/react/react.js'></script>
+  <script type='text/javascript' src='node_modules/moment/moment.min.js'></script>
+  .
+  .
+  .
+  <script type='text/javascript' src='index.js'></script>
+</head>
+```
+
+' händisch suchen und runterladen nicht mehr möglich
+' immer noch händische einbindung..?
+' für jedes file eigener request
+' mobil? datentraffic?
+
+---
+
+### Import
+
+```js
+import React from "react";
+```
+
+' EcmaScript6 erlaubt import, früher require
+' nodejs löst abhängigkeit auf, preprocessor kann auf eine einzelne bündeln
 
 ---
 
@@ -189,6 +214,21 @@ tree shaking
 ' macht aus vielen js dateien eine bundle datei mit allem
 ' nur noch ein request für alles js
 ' tree shaking: ungenutzte module werden ausgelassen
+
+---
+
+### Import packages
+
+```js
+var react = require('react');
+
+console.log("hiho");
+```
+
+' node löst abhängigkeit auf, kennt richtigen pfad
+' funktioniert so aber erstmal nicht
+' browser hat keinen zugriff zum filesystem
+' module bundler, gleich. Webpack
 
 ---
 
